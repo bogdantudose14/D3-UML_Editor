@@ -1,0 +1,341 @@
+/* Global Variables */
+
+:root {
+  --link-color: lightsteelblue;
+}
+
+.png_images_WorkflowEngine {
+  background-image: url(images/default.png) !important;
+  background-repeat: no-repeat;
+}
+
+@font-face {
+  font-family: 'NewsGothicMT';
+  src: url('font/NewsGothicMT.ttf') format('truetype');
+}
+
+/* #region D3 TREE*/
+
+/*
+ * Styles of the components of the tree
+ */
+#tree-container {
+  position: absolute;
+  left: 0px;
+  width: 100%;
+}
+
+.svgContainer {
+  display: block;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+}
+
+.d3-container {
+  height: 100%;
+}
+
+div.workflow-engine-dialog.ui-dialog {
+  border: none;
+  display: none;
+}
+
+.drawarea {
+  /* transform: translate(25%, 25%); */
+}
+
+.node {
+  cursor: pointer;
+}
+
+/* .node-rect {
+} */
+
+.node-rect-closed {
+  stroke-width: 2px;
+  stroke: rgb(0, 0, 0);
+}
+
+.link {
+  fill: none;
+  stroke: lightsteelblue;
+  stroke-width: 2px;
+}
+
+.linkselected {
+  fill: none;
+  stroke: tomato;
+  stroke-width: 2px;
+}
+
+.arrow {
+  fill: lightsteelblue;
+  stroke-width: 1px;
+}
+
+.arrowselected {
+  fill: tomato;
+  stroke-width: 2px;
+}
+
+.link text {
+  font: 7px sans-serif;
+  fill: #cc0000;
+}
+
+.wordwrap {
+  white-space: pre-wrap; /* CSS3 */
+  white-space: -moz-pre-wrap; /* Firefox */
+  white-space: -pre-wrap; /* Opera <7 */
+  white-space: -o-pre-wrap; /* Opera 7 */
+  word-wrap: break-word; /* IE */
+}
+
+.tooltip-text-container {
+  height: 100%;
+  width: 100%;
+}
+
+#nodesTooltips .tooltip-text {
+  visibility: visible !important;
+  font: 10px NewsGothicMT;
+  font-weight: normal;
+  fill: #2e2e2e;
+  display: block;
+}
+
+#nodesTooltips .tooltip-box {
+  visibility: visible !important;
+  position: absolute;
+  fill: lightsteelblue;
+}
+
+.tooltip-node-add,
+.tooltip-node-delete {
+  position: absolute;
+  visibility: hidden;
+  -webkit-border-radius: 0.5em;
+  border-radius: 0.5em;
+  cursor: pointer;
+}
+
+.tooltip-node-add > div,
+.tooltip-node-delete > div {
+  background: white;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.bi-x-circle-fill {
+  background-size: 1.7rem 1.2rem;
+  background-repeat: no-repeat;
+  background-image: url(/images/x-circle-fill.svg);
+  margin-left: 0.1rem;
+  margin-top: 0.3rem;
+  cursor: pointer;
+}
+
+.bi-node-plus-fill {
+  background-size: 1.7rem 2rem;
+  background-repeat: no-repeat;
+  background-image: url(/images/node-plus-fill.svg);
+  margin-left: 0.1rem;
+  cursor: pointer;
+}
+
+.bi-plus-circle-fill {
+  background-repeat: no-repeat;
+  background-image: url(/images/plus-circle-fill.svg);
+  font-size: 0.7rem;
+  padding-bottom: 20px;
+  padding-right: 20px;
+  display: block;
+  margin: auto;
+  cursor: pointer;
+}
+
+.tooltip-link-add {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  visibility: hidden;
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+p {
+  display: inline;
+}
+
+.textcolored {
+  color: orange;
+}
+
+a.exchangeName {
+  color: orange;
+}
+
+.d3-ctx-menu {
+  box-shadow: 0 4px 5px 3px rgba(0, 0, 0, 0.2) !important;
+  position: absolute;
+  display: none;
+  z-index: 10000;
+  background: transparent;
+  opacity: 0.9;
+}
+
+.d3-ctx-menu:hover {
+  box-shadow: 0 4px 5px 3px rgba(0, 0, 0, 0.2) !important;
+}
+
+.d3-ctx-menu-option:hover {
+  background: rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 5px 3px rgba(0, 0, 0, 0.2) !important;
+  color: white;
+  font-weight: 600;
+}
+
+.d3-ctx-menu-options {
+  list-style: none;
+  padding: 0 0;
+  z-index: 10000;
+  margin-bottom: 0px !important;
+}
+
+.d3-ctx-menu-option {
+  font-size: 1.3em;
+  font-family: NewsGothicMT;
+  padding: 10px 20px 10px 20px;
+  cursor: pointer;
+  z-index: 10000;
+}
+
+.d3-container > .ui-widget-overlay.ui-front {
+  position: absolute;
+}
+
+.workflow-engine-dialog.workfow-engine-designer-nodetypes {
+  height: 40vh;
+  width: 15vw;
+  right: 5%;
+  top: 5%;
+  position: absolute;
+  display: none;
+  cursor: move;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.workflow-engine-designer-container {
+  height: 100%;
+  width: 100%;
+  border: 1px solid #dddddd;
+  display: flex;
+  justify-content: center;
+}
+
+.workflow-engine-designer-nodetypes.plus-btn {
+  background-repeat: no-repeat;
+  background-image: url(/images/file-earmark-plus-fill.svg);
+  cursor: pointer;
+  height: 48px;
+  width: 48px;
+  position: absolute;
+}
+
+div.workflow-engine-designer-nodetypes.svg-wrapper {
+  width: 48px;
+  height: 48px;
+  position: absolute;
+}
+
+.d3-container
+  .workflow-engine-dialog.workfow-engine-designer-nodetypes
+  .workflow-engine-designer_closethick {
+  position: absolute;
+  right: 0;
+  border: 1.5px solid #ebeef5;
+  background-position: -20px -153px;
+}
+.workflow-engine-dialog.workfow-engine-designer-nodetypes
+  .workflow-engine-dialog-header
+  > h3 {
+  font-family: NewsGothicMT;
+  font-size: 1.8rem;
+  margin-top: 5px;
+  margin-left: 10px;
+}
+
+.workflow-engine-dialog-header {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  width: 100%;
+}
+
+.workflow-engine-dialog-body {
+  height: calc(100% - 40px);
+  width: 100%;
+  border: 1px solid #ebeef5;
+  box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
+  position: absolute;
+  bottom: 0;
+}
+
+.workflow-engine-dialog-body > form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 1rem;
+}
+
+.workflow-engine-dialog-body > form > .element-card-wrapper {
+  border: 1px solid #ebeef5;
+  background-color: #fff;
+  color: #303133;
+  box-shadow: 2px 1px 0 rgb(0 0 0 / 10%);
+  padding-top: 5%;
+  height: 50px;
+  width: 75%;
+  cursor: pointer;
+}
+
+.workflow-engine-dialog-body > form > .element-card-wrapper:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: white;
+}
+
+.workflow-engine-dialog-body .element-card-reusable div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.workflow-engine-dialog-body .element-card-reusable span {
+  font-family: NewsGothicMT;
+  font-size: 1.3rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* #endregion*/
+
+/* #region MODAL */
+
+.modal-body {
+  display: flex;
+  justify-content: center;
+}
+
+.modal-body .select2-container {
+  flex-grow: 1;
+}
+
+/* #endregion*/

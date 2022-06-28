@@ -1,0 +1,402 @@
+/*#region CONTEXT MENUS*/
+
+.graph_body .ctx-menu,
+.graph-gui .ctx-menu-workflow {
+  box-shadow: 0 4px 5px 3px rgba(0, 0, 0, 0.2);
+  background-color: rgb(255, 255, 255);
+  position: absolute;
+  display: none;
+  z-index: 10000;
+}
+
+.graph_body .ctx-menu-options,
+.graph-gui .ctx-menu-workflow-options {
+  list-style: none;
+  padding: 10px 0;
+  z-index: 10000;
+}
+
+.graph_body .ctx-menu-option,
+.graph-gui .ctx-menu-workflow-option {
+  font-weight: 500;
+  font-size: 15px;
+  font-family: 'Century Gothic';
+  padding: 10px 40px 10px 20px;
+  cursor: pointer;
+  z-index: 10000;
+}
+
+.graph_body .ctx-menu-option:hover,
+.graph-gui .ctx-menu-workflow-option:hover {
+  background: rgba(0, 0, 0, 0.2);
+  color: white;
+}
+
+/*#endregion */
+
+/*#region WORKFLOW GRAPH*/
+
+.cyWidget {
+  min-height: 84vh;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.graph-gui .cyWorkflowWidget {
+  min-width: 90vw;
+  position: relative;
+  justify-content: center;
+  width: 100%;
+  height: 80vh;
+}
+
+/* .cy-ticketInStatusLabel {
+    border: 1px dashed black !important;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 14px;
+    font-family: 'Century Gothic';
+    position: relative;
+    padding: 2px 4px;
+    margin-bottom: 2px;
+} */
+
+.graph-gui .edge-label {
+  /* margin-right: 10rem !important; */
+  margin-bottom: 1.8em;
+  font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+  font-size: large;
+  text-align: center;
+  -webkit-animation: fadein 2s;
+  /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadein 2s;
+  /* Firefox < 16 */
+  -ms-animation: fadein 2s;
+  /* Internet Explorer */
+  -o-animation: fadein 2s;
+  /* Opera < 12.1 */
+  /*    animation: fadein 2s;
+*/
+}
+
+.graph-gui .edge-label-parent {
+  z-index: 0 !important;
+}
+
+.graph-gui .tk-action-name {
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+  height: 19px;
+  width: auto;
+  float: left;
+  margin-right: 5px;
+}
+
+.graph-gui .cyWorkflowWidget > div {
+  overflow: visible !important;
+}
+
+@media only screen and (max-width: 1180px) {
+  .graph-gui .graph-header {
+    padding-bottom: 1px;
+  }
+
+  .graph-gui .graph-filter-buttons {
+    margin-top: 3em;
+  }
+}
+
+@media only screen and (max-width: 1180px) {
+  .graph-gui .graph-header .footer_shell {
+    margin-top: 3em;
+  }
+}
+
+.graph-gui .graph-filter-buttons-shell-item {
+  text-transform: uppercase;
+  padding: 3px 0px 0px 15px;
+  white-space: nowrap;
+  background: url(/content/css/images/grid/footer_shell_sep.png) no-repeat left;
+  background-position-y: 2px;
+  float: left;
+  /*    display: none;*/
+}
+
+.graph-gui .graph-filter-buttons-shell-item > .grid_filters_edit > .status_on {
+  display: none;
+}
+
+.graph-gui .graph-filter-buttons-shell-item a {
+  color: #334771 !important;
+  cursor: pointer;
+  font-weight: normal;
+}
+
+.graph-gui
+  .graph-filter-buttons-shell-item.shell_item_txt.graph_filters_on
+  > a {
+  color: #ff2d2d !important;
+  font-weight: bold;
+}
+
+.graph-gui .graph-filter-buttons-shell-item.shell_item_txt > a:hover {
+  color: #821701 !important;
+}
+
+.graph-gui .graph-header .footer_shell {
+  padding-left: 1%;
+  padding-right: 1%;
+  display: flex;
+  align-items: center;
+  column-gap: 1em;
+  margin-top: auto;
+}
+
+.graph-gui .graph-filter-list {
+  display: none;
+  /* visibility: hidden; */
+  width: 100%;
+  min-height: 30px;
+  height: fit-content;
+  background: rgba(236, 236, 236, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.graph-gui .graph-filter-list.filters-list-on {
+  /* animation-duration: 1s;
+    animation-name: slidein;
+    width: 300px; */
+}
+
+.graph-gui .graph-filter-list.filters-list-off {
+  /* animation-duration: 1s;
+    animation-name: slideout; 
+    width: 0px; */
+}
+
+.graph-gui .graph-filter-list .edit-form-custom-ol > li {
+  width: auto;
+  padding-top: 1px;
+  float: none;
+}
+
+@media only screen and (max-width: 1750px) {
+  .graph-gui .graph-filter-list .edit-form-custom-ol > li > label {
+    display: block !important;
+  }
+}
+
+.graph-gui .graph-filter-list .edit-form-custom-ol > li span.select2 {
+  min-width: 15em;
+  width: auto !important;
+  z-index: 1;
+}
+
+.graph-gui .graph-filter-list fieldset.oneColumnForm {
+  padding-bottom: 0.4em;
+  padding-top: 0.5em;
+  height: auto;
+  max-width: 90%;
+  margin-right: 5rem;
+}
+
+.graph-gui .graph-filter-list .edit-form-custom-ol > li > label {
+  display: inline;
+  padding-right: 6px;
+}
+
+.graph-gui .graph-filter-list .filters-buttonset {
+  position: absolute;
+  right: 0px;
+  margin-right: 3px;
+  column-gap: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.graph-gui .graph-filter-list .filters-buttonset > button {
+  font-weight: initial;
+}
+
+.graph-gui .graph-filter-buttons {
+  float: right;
+  width: auto;
+  display: flex;
+  column-gap: 15px;
+  font-size: smaller;
+}
+
+.graph-gui .graph-header {
+  text-align: center;
+  padding: 1rem 0.5rem 1rem 0;
+  margin: 0 0rem;
+  border-bottom: 1px solid #bbb;
+  font-weight: normal !important;
+  display: flex;
+  justify-content: space-between;
+}
+
+.graph-gui .graph-header .ticket-type-select select.select2 {
+  width: 25rem !important;
+}
+
+.graph-gui .graph-header .footer_shell .workflow-graph-config span.select2 {
+  width: 100% !important;
+  box-sizing: content-box;
+}
+
+span.select2-dropdown.select2-dropdown--below {
+  box-sizing: content-box;
+}
+
+.graph-gui span.ticket-type-select {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+
+.graph-gui .graph-content .workflow_graph_legend {
+  height: 450px;
+  width: 300px;
+  position: absolute;
+  right: 0;
+  z-index: 1000;
+  cursor: move;
+  border: 2px solid #dddddd;
+  background: white;
+  display: none;
+}
+
+.graph-gui .graph-content .workflow_graph_legend .legend_closethick {
+  position: absolute;
+  right: 0;
+  border: 2px solid #dddddd;
+  background-position: -21px -153px;
+}
+
+.graph-gui .graph-gui-head .workflow_graph_legend_btn {
+  background-position: -342px -3px;
+}
+
+.graph-gui .graph-gui-head .workflow_graph_legend_btn:hover {
+  background-position: -342px -23px;
+}
+
+.graph-gui .graph-content .workflow_graph_legend .legend_img {
+  height: 100%;
+  width: 100%;
+  background: url(/content/css/images/legend.png) no-repeat left;
+}
+
+/*#endregion */
+
+/* #region ANIMATIONS*/
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Firefox < 16 */
+
+@-moz-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Internet Explorer */
+
+@-ms-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Opera < 12.1 */
+
+@-o-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes bummer {
+  100% {
+    -webkit-transform: scale(1, 1);
+  }
+}
+
+@keyframes bummer {
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+@keyframes slidein {
+  from {
+    width: 0px;
+  }
+
+  to {
+    width: 300px;
+  }
+}
+
+@keyframes slideout {
+  from {
+    width: 300px;
+  }
+
+  to {
+    width: 0px;
+  }
+}
+
+.cyWorkflowAnimation {
+  animation-delay: 0.5s;
+  -webkit-animation: bummer 1.5s;
+  animation: bummer 1.5s;
+  animation-timing-function: linear;
+  -webkit-transform: scale(0, 0);
+  transform: scale(0, 0);
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  /* Add this so that your modal doesn't 
+                                      close after the animation completes */
+}
+
+/* #endregion*/
